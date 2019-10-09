@@ -15,16 +15,16 @@
     //  Switch case is executed depending on the type of request
     switch ($type) {
             
-        case "Login":                                     
+        case "login":                                     
             
             $email = $_GET["email"];
             $password = $_GET["password"];
             
-            $response = login($email, $password);
+            $response = dologin($email, $password);
             echo $response;
             break;
             
-        case "RegisterNewUser":
+        case "register":
             
             $flname = $_GET["flname"];
             $email = $_GET["email"];

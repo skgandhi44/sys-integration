@@ -1,88 +1,68 @@
 <?php
+
+    require_once('../rabbitmqphp_example/path.inc');
+    require_once('../rabbitmqphp_example/get_host_info.inc');
+    require_once('../rabbitmqphp_example/rabbitMQLib.inc');
+    require_once('../test/rabbitMQClient.php');
     include('connection.php');
-    session_start();
 
-    // initializing variables
-    $flname = $_SESSION["flname"];
-    $email = $_SESSION["email"];
-    $password_1 = $_SESSION["password_1"];
-
-    $errors = array(); 
-
-
-    // REGISTER USER
-    if (isset($_POST['reg_user'])) {
-        $flname = mysqli_real_escape_string($db, $_POST['flname']);
-        $email = mysqli_real_escape_string($db, $_POST['email']);
-        $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
-        $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
-      // form validation: ensure that the form is correctly filled ...
-      // by adding (array_push()) corresponding error unto $errors array
-        
-        if (empty($flname)) { 
-            array_push($errors, "Full Name is required"); 
-        } else {
-            if (!preg_match("/^[a-zA-Z ]*$/", $flname)) {
-                array_push($errors, "Only letters and white space allowed");
-            }
-        }
-        
-        if (empty($email)) { 
-            array_push($errors, "Email is required"); 
-        } else {
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                array_push($errors, "Email address is invalid");
-            }
-        }
-        
-        if(!empty($email)){
-            $user_check_query = "SELECT * FROM users WHERE email='$email'";
-            $result = mysqli_query($db, $user_check_query);
-            
-            if (mysqli_num_rows($result) > 0) {
-                array_push($errors, "Email already exists");
-            }
-        }
-        
-        if (empty($password_1)) { 
-            array_push($errors, "Password is required"); 
-        }
-        if ($password_1 != $password_2) {
-            array_push($errors, "The two passwords do not match");
-        }
-      // Finally, register user if there are no errors in the form
-      if (count($errors) == 0) {
-        $password = md5($password_1);//encrypt the password before saving in the database
-        $query = "INSERT INTO users (fullname, email, password) VALUES('$flname', '$email', '$password')";
-        mysqli_query($db, $query) or die (mysqli_error ($db));
-        $_SESSION['email'] = $email;
-          
-        $_SESSION['flname'] = $flname;
-        $user = "SELECT * FROM users WHERE fullname='$flname'";
-        header('location: index.php');
-      }
+    //Hashes password for storing
+    function hashPassword($password, $salt){
+        $new_pass = $password . $salt;
+        return hash("sha256", $new_pass);
     }
 
-//////////////// Login Page user Login //////////////////////
-    if (isset($_POST['login_user'])) {
-        $email = mysqli_real_escape_string($db, $_POST['email']);
-        $password = mysqli_real_escape_string($db, $_POST['password']);
-        if (empty($email)) {
-            array_push($errors, "Email is required");
-        }
+    function login($email, $password){
+        // database connection
+        $connection = connection();
         
-        if (empty($password)) {
-            array_push($errors, "Password is required");
+        $query = "SELECT * FROM users WHERE email = '$email'";
+        $result = $connection->query($query);
+        if($result){
+            if($result->num_rows == 0){
+                return false;
+            }else{
+                while ($row = $result->fetch_assoc()){
+                    $salt = $row['salt']; 
+                    $h_password = hashPassword($password, $salt);
+                    if ($row['h_password'] == $h_password){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }
+            }
         }
-        if (count($errors) == 0) {
-            $password = md5($password);
-            $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
-            $results = mysqli_query($db, $query) or die (mysqli_error ($db));;
-            if (mysqli_num_rows($results) == 1) {
-                $_SESSION['email'] = $email;
-                header('location: index.php');
-            } else {
-                array_push($errors, "Wrong username/password combination");
+    }
+
+    // This function registers a new user 
+    function register($flname, $email, $password){
+        //Makes connection to database
+        $connection = connection();
+        //Generates a salt for the new user
+        $salt = randomString(29);
+        //Hashes password
+        $h_password = hashPassword($password, $salt);
+        
+        //Query for a new user
+        $newuser_query = "INSERT INTO users VALUES ('$flname', '$email', '$h_password', '$salt')";
+        $result = $connection->query($newuser_query);
+        return true;
+    }
+
+    // This function checks if email is valid
+    function checkEmail($email){
+        $connection = connection();
+        
+        //Query to check if the email is email
+        $check_email = "SELECT * FROM users WHERE email = '$email'";
+        $check_result = $connection->query($check_email);
+        
+        if($check_result){
+            if($check_result->num_rows == 0){
+                return true;
+            } elseif($check_result->num_rows == 1){
+                return false;
             }
         }
     }
