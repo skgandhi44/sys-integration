@@ -3,22 +3,21 @@
     require_once('../rabbitmqphp_example/path.inc');
     require_once('../rabbitmqphp_example/get_host_info.inc');
     require_once('../rabbitmqphp_example/rabbitMQLib.inc');
-    require_once('../test/rabbitMQClient.php');
+    //require_once('../rabbitmqphp_example/rabbitMQClient.php');
     include('connection.php');
+
 
     function login($email, $password){
         $connection = connection();
-        $password = sha1($password);
-
+        $password = md5($password);
         $s = "select * from users where email='$email' and password='$password'";
-        $result = $connection->query($query);
-
-        if ($result > 0){
-            $_SESSION["email"] = $email;
-            return true;
-
+        $result = mysqli_query($connection, $s) OR die(mysqli_error());
+        $num = mysqli_num_rows($result);
+        if ($num > 0){
+            $userEmail = $_SESSION["email"] = $email;
+            return $userEmail." You are logged in!" ;
         } else {
-            return false ;
+            return "Wrong Credentials, please try again!";
         }
     }
 
@@ -27,13 +26,24 @@
         //Makes connection to database
         $connection = connection();
         //Hashes password
-        $password = sha1($password);
+
+        $password = md5($password);
         
         //Query for a new user
-        $newuser_query = "INSERT INTO users VALUES ('$flname', '$email', '$password')";
-        $result = $connection->query($newuser_query);
-        return true;
+        $newuser_query = "INSERT INTO users (flname, email, password) VALUES ('$flname', '$email', '$password')";
+        
+        $resultInsert = mysqli_query($connection, $newuser_query) OR die(mysqli_error());
+        //$numResult = mysqli_num_rows($resultInsert);
+        
+        if ($resultInsert == 1){
+            $userEmail = $_SESSION["email"] = $email;
+            return $userEmail." You are registered!" ;
+        } else {
+            return "Registration Failed!";
+        }
+        
     }
+
 
     // This function checks if email is valid
     function checkEmail($email){
