@@ -6,30 +6,6 @@
     require_once('../test/rabbitMQClient.php');
     include('connection.php');
 
-
-    function login($email, $password){
-        // database connection
-        $connection = connection();
-        
-        $query = "SELECT * FROM users WHERE email = '$email'";
-        $result = $connection->query($query);
-        if($result){
-            if($result->num_rows == 0){
-                return false;
-            }else{
-                while ($row = $result->fetch_assoc()){
-                    $salt = $row['salt']; 
-                    $h_password = hashPassword($password);
-                    if ($row['h_password'] == $h_password){
-                        return true;
-                    }else{
-                        return false;
-                    }
-                }
-            }
-        }
-    }
-
     function login($email, $password){
         $connection = connection();
         $password = sha1($password);
