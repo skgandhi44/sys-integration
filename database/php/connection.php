@@ -1,19 +1,20 @@
 <?php
-    
-    ///////////////////// Error checking ///////////////////////////
 
-    error_reporting(E_ERROR | E_WARNING | E_PASE | E_NOTICE);
-    ini_set('display_errors', 1);
-
-    include ("account.php");
-
-///////////////////// Database connection ///////////////////////////
-
-    $db = mysqli_connect($hostname, $username, $password, $project);
-    if (mysqli_connect_errno()) {
-        echo "Failed to connect to MySQL: " . mysqli_connect_error();
-        exit();
+    function connection(){
+        $hostname = "127.0.0.1"; 			// or "sql2.njit.edu"   OR "SQL1.NJIT.EDU"
+        $username = "IT490_user";   // ucid 
+        $project  = "IT490";  // ucid
+        $password = "MySQL123!";  
+        
+        $connection = mysqli_connect($hostname, $username, $password, $project);
+        
+        if (!$connection){
+            echo "Error Connecting to Database: " . $connection->connect_errno.PHP_EOL;
+            exit();
+        }
+        
+        echo "Connection Established to Database" . PHP_EOL;
+        return $connection;
     }
 
-    mysqli_select_db($db, $project);
 ?>
