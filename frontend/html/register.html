@@ -23,30 +23,30 @@
             <div class="card x-shadow mx-auto" style="max-width: 525px; margin-top: -7rem;">
                 <div class="card-body p-5">
 
-                    <form method="post" action="register.php">
+                    <form method="post" action="../php/register.php">
                         
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="flname">Full Name</label>
-                                <input type="text" class="form-control" name = "flname" placeholder="Full Name" value="<?php echo $flname?>">
+                                <input type="text" class="form-control" name = "flname" placeholder="Full Name" value="">
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="email">Email</label>
-                                <input type="text" name="email" id="email" class="form-control input-lg" Placeholder="Email" value="<?php echo $email?>">
+                                <input type="text" name="email" id="email" class="form-control input-lg" Placeholder="Email" value="">
                             </div>
                         </div>
                             
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="password_1">Password</label>
+                                <label for="password">Password</label>
                                 <input type="password" name="password" id="password" class="form-control input-lg" Placeholder="Password">
                             </div>
                             
                             <div class="form-group col-md-6">
-                                <label for="password_2">Confirm Password</label>
+                                <label for="password">Confirm Password</label>
                                 <input type="password" name="confirm_password" id="confirm_password" class="form-control input-lg" Placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Requirements - 1 number,1 uppercase, 1 lowercase letter, and 6 or more characters">
                             </div>
                         </div>
