@@ -1,10 +1,10 @@
 <?php
 
     function connection(){
-        $hostname = "127.0.0.1"; 			// or "sql2.njit.edu"   OR "SQL1.NJIT.EDU"
-        $username = "IT490_user";   // ucid 
-        $project  = "IT490";  // ucid
-        $password = "MySQL123!";  
+        $hostname = ""; 		
+        $username = "";   
+        $project  = "";  
+        $password = "";  
         
         $connection = mysqli_connect($hostname, $username, $password, $project);
         
