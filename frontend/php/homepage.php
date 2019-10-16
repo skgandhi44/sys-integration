@@ -1,24 +1,22 @@
 <?php
 
-//    require_once('../rabbitmqphp_example/path.inc');
-//    require_once('../rabbitmqphp_example/get_host_info.inc');
-//    require_once('../rabbitmqphp_example/rabbitMQLib.inc');
-//    require_once('rabbitMQClient.php');
-//    
-//    
-//    //logAndSendErrors();
-//    session_start();
-//    
-//    if (!$_SESSION["logged"]){
-//        header("Location: ../html/login.html");
-//    }
-//
-//    $request = array();
-//    $request['type'] = "UserProfile";
-//    $request['email'] = $_SESSION["email"];
-//    $data = createClientForDb($request);
+    require_once('../rabbitmqphp_example/path.inc');
+    require_once('../rabbitmqphp_example/get_host_info.inc');
+    require_once('../rabbitmqphp_example/rabbitMQLib.inc');
+    require_once('rabbitMQClient.php');
 
-    include('login.php');
+    session_start();
+
+    if (!isset($_SESSION['email'])) {
+        $_SESSION['msg'] = "You must log in first";
+        header('location: ../html/login.php');
+    }
+
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        unset($_SESSION['email']);
+        header("location: ../html/login.php");
+    }
     
 ?>
 
@@ -39,13 +37,15 @@
     <body id = "wrapper">
 
         <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand">
-                
-            </a>
+            <?php  if (isset($_SESSION['email'])) : ?>
+                <a class="navbar-brand">
+                    Welcome <strong><?php echo $_SESSION['email']; ?></strong>
+                </a>
 
             <form class="form-inline">
                 <a class="btn btn-danger" href="logout.php?logout=true" style="margin:5px;">Logout</a>
             </form>
+	<?php endif ?>
         </nav>
                 <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
