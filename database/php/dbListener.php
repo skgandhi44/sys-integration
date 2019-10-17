@@ -11,7 +11,7 @@
         echo "received request".PHP_EOL;
         echo "<br> type = " . $request['type'];
         echo "<br> email = " . $request["email"];
-        echo "<br> pass = " . $request["pass"];
+        echo "<br> pass = " . md5($request["pass"]);
         //var_dump($request);
         
 
