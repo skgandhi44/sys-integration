@@ -1,5 +1,4 @@
 <?php
-
     require_once('../rabbitmqphp_example/path.inc');
     require_once('../rabbitmqphp_example/get_host_info.inc');
     require_once('../rabbitmqphp_example/rabbitMQLib.inc');
@@ -9,42 +8,42 @@
 
     function login($email, $password){
         $connection = connection();
-        $password = md5($password);
-        $s = "select * from users where email='$email' and password='$password'";
+        $password_hash = md5($password);
+        $s = "select * from users where email='$email' and password='$password_hash'";
         $result = mysqli_query($connection, $s) OR die(mysqli_error());
         $num = mysqli_num_rows($result);
         if ($num > 0){
             $userEmail = $_SESSION["email"] = $email;
-            return $userEmail." You are logged in!" ;
+            //header('location: ../php/homepage.php');
+            echo "Login successful: return value ";
+            return true;
         } else {
-            return "Wrong Credentials, please try again!";
+            //header('location: ../php/login.php');
+            echo "Login failed";
+            return false;
         }
     }
-
     // This function registers a new user 
     function register($flname, $email, $password){
         //Makes connection to database
         $connection = connection();
         //Hashes password
-
-        $password = md5($password);
+        $password_hash = md5($password);
         
         //Query for a new user
-        $newuser_query = "INSERT INTO users (flname, email, password) VALUES ('$flname', '$email', '$password')";
+        $newuser_query = "INSERT INTO users (flname, email, password) VALUES ('$flname', '$email', '$password_hash')";
         
         $resultInsert = mysqli_query($connection, $newuser_query) OR die(mysqli_error());
         //$numResult = mysqli_num_rows($resultInsert);
         
         if ($resultInsert == 1){
             $userEmail = $_SESSION["email"] = $email;
-            return $userEmail." You are registered!" ;
+            return true;
         } else {
-            return "Registration Failed!";
+            return false;
         }
         
     }
-
-
     // This function checks if email is valid
     function checkEmail($email){
         $connection = connection();
