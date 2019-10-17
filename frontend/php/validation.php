@@ -20,11 +20,11 @@
 	$flname = $_POST['flname'];
         $email = $_POST['email'];
         $password = $_POST['password'];
+	$confirm_password = $_POST['confirm_password'];
 
         if (empty($flname)) { 
 		array_push($errors, "Full Name is required"); 
-        } 
-	elseif (!preg_match("/^[a-zA-Z ]*$/",$flname)){
+        } elseif (!preg_match("/^[a-zA-Z ]*$/",$flname)){
 		array_push($errors, "Only letters and white space allowed");
 	} else {
 		$request["flname"] = $flname;
@@ -38,20 +38,21 @@
 	} 
 	elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)){
 		array_push($errors, "Email address is invalid");
-	} 
-	else {
+	} else {
 		$request["email"] = $email;
 	}
 
 
 
 		  
-	if (empty($password)) { 
+	if (empty($password) || empty($confirm_password)) { 
             array_push($errors, "Password is required"); 
-        }
 
-	else {
-		$request["pass"] = $pass;
+	} elseif ($password != $confirm_password) {
+            array_push($errors, "The two passwords do not match");
+
+        } else {
+		$request["pass"] = $password;
         }
 	
 	if (count($errors) == 0) {
@@ -67,32 +68,32 @@
         $password = $_POST['password'];
 
     	$request["type"] = "login";
-    	$request["email"] = $email;
-    	$request["pass"] = $pass;
 
         if (empty($email)) {
 		array_push($errors, "Email is required"); 
-	} 
-	elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+	} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)){
 		array_push($errors, "Email address is invalid");
-	} 
-	else {
+	} else {
 		$request["email"] = $email;
 	}
 
 		  
 	if (empty($password)) { 
             array_push($errors, "Password is required"); 
-        }
-
-	else {
-		$request["pass"] = $pass;
+        } else {
+		$request["pass"] = $password;
         }
 	
 	if (count($errors) == 0) {
 		$result = createClientForDb($request);
-		$_SESSION['email'] = $email;
-        	header('location: ../php/homepage.php');
+		
+		if($result == 1){	
+			$_SESSION['email'] = $email;
+        		header('location: ../php/homepage.php');
+		} else {
+			array_push($errors, "Wrong Email/Password combinations");
+		}
+
 	}
 
     }
