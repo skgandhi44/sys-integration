@@ -4,7 +4,14 @@
     require_once('../rabbitmqphp_example/get_host_info.inc');
     require_once('../rabbitmqphp_example/rabbitMQLib.inc');
     require_once('rabbitMQClient.php');
+    
+    //error logging
+    error_reporting(E_ALL);
 
+    ini_set('display_error', 'Off');
+    ini_set('log_errors', 'On');
+    ini_set('error_log', dirname(__FILE__).'/../logging/log.txt');
+    
     session_start();
 
     if (!isset($_SESSION['email'])) {
@@ -31,22 +38,64 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
         <title>HomePage</title>
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
+<!--        <link rel="stylesheet" type="text/css" href="../css/style.css">-->
     </head>
+    
+    <style>
+        
+        .jumbotron{
+            background-color:  #760be1;
+            border-radius: 0 !important;
+        }
+
+        #searchBar{
+            border-radius: 0 !important;
+        }
+        
+        #searchBtn{
+            border-radius: 0 !important;
+        }
+        
+        #loginBtn{
+            
+        }
+        
+        #searchHeader{
+            color: white;
+            margin-bottom: 25px;
+        }
+        
+    </style>
 
     <body id = "wrapper">
 
         <nav class="navbar navbar-light bg-light">
             <?php  if (isset($_SESSION['email'])) : ?>
                 <a class="navbar-brand">
-                    Welcome <strong><?php echo $_SESSION['email']; ?></strong>
-                </a>
+                    <strong style="color:black;">Welcome, <?php echo $_SESSION['email']; ?></strong>
+            </a>
 
             <form class="form-inline">
-                <a class="btn btn-danger" href="logout.php?logout=true" style="margin:5px;">Logout</a>
+                <a id = "logoutBtn" class="btn btn-danger" href="logout.php?logout=true" style="margin:5px;">Logout</a>
             </form>
 	<?php endif ?>
         </nav>
+        
+        
+        <div class="jumbotron text-center">
+            <strong><h1 id = "searchHeader">Search Product</h1></strong>  
+            <div class = "container">
+                <form>
+                    <div class="input-group">
+                        <input id = "searchBar" type="text" class="form-control mr-sm-3" size="50" placeholder="Search" required>
+                        <div class="input-group-btn">
+                            <button id = "searchBtn" type="button" class="btn btn-light">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
                 <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
