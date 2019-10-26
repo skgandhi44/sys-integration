@@ -15,6 +15,12 @@
     </head>
 
     <body id = "wrapper">
+        
+        <nav class="navbar navbar-inverse bg-dark">
+            <a class="navbar-brand">
+                <strong style="color:white;">Nutrisize</strong>
+            </a>
+        </nav>
 
         <div class = "jumbotron">
             <header id = "page-header">
@@ -28,7 +34,7 @@
 
                     <form method="post" action="login.php">
 
-			<?php include('../php/errors.php');?>
+			         <?php include('../php/errors.php');?>
                         
                         <div class="form-group">
                             <label for="email">Email</label>
