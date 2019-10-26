@@ -27,7 +27,7 @@
 
                     <form method="post" action="register.php">
 
-			<?php include('../php/errors.php');?>
+			             <?php include('../php/errors.php');?>
                         
                         <div class="form-row">
                             <div class="form-group col-md-12">
@@ -52,6 +52,18 @@
                             <div class="form-group col-md-6">
                                 <label for="password">Confirm Password</label>
                                 <input type="password" name="confirm_password" id="confirm_password" class="form-control input-lg" Placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Requirements - 1 number,1 uppercase, 1 lowercase letter, and 6 or more characters">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                             <div class="form-group col-md-6">
+                                <label for="heightInInches">Hight In Inches</label>
+                                <input type="number" min="0" name="heightInInches" id="heightInInches" class="form-control input-lg" Placeholder="Your height in inches">
+                            </div>
+                            
+                             <div class="form-group col-md-6">
+                                <label for="weightInPound">Weight in Pounds</label>
+                                <input type="number" min="0" name="weightInPound" id="weightInPound" class="form-control input-lg" Placeholder="Your weight in pound">
                             </div>
                         </div>
                         
