@@ -23,4 +23,15 @@ Followig will show the instructions on how to set up the files and listener file
      * Second exchange: e2 and q2
  
  * Database:
-   *
+   * Change /database/rabbitmqphp_example/testRabbitMQ.ini file and assign BROKER_HOST the IP address of RabbitMQ server
+   * In terminal start /database/php/dbListner.php (this will start listening to RMQ messages)
+   
+ * DMZ:
+   * Change /dmz/rabbitmqphp_example/testRabbitMQ.ini file and assign BROKER_HOST the IP address of RabbitMQ server
+   * In terminal start /dmz/php/dbListner.php 
+   
+ * Front End:
+   * Change /frontend/rabbitmqphp_example/testRabbitMQ.ini file and assign BROKER_HOST the IP address of RabbitMQ server
+   * Open /frontedn/html/login.php in browser to begin testing
+   
+   
