@@ -4,6 +4,13 @@
     require_once('../rabbitmqphp_example/rabbitMQLib.inc');
     //require_once('../rabbitmqphp_example/rabbitMQClient.php');
     include('connection.php');
+    
+    //Error logging
+    error_reporting(E_ALL);
+    
+    ini_set('display_errors', 'On');
+    ini_set('log_errors', 'On');
+    ini_set('error_log', dirname(__FILE__). '/../logging/log.txt');
 
 
     function login($email, $password){
@@ -24,14 +31,16 @@
         }
     }
     // This function registers a new user 
-    function register($flname, $email, $password){
+    function register($flname, $email, $password, $heightInInches, $weightInPound){
         //Makes connection to database
         $connection = connection();
         //Hashes password
         $password_hash = md5($password);
         
+        $UserBMI = (703 * ($weightInPound / pow($heightInInches, 2)));
+        
         //Query for a new user
-        $newuser_query = "INSERT INTO users (flname, email, password) VALUES ('$flname', '$email', '$password_hash')";
+        $newuser_query = "INSERT INTO users (flname, email, password, heightInInches, weightInPound, UserBMI) VALUES ('$flname', '$email', '$password_hash', '$heightInInches', '$weightInPound', '$UserBMI')";
         
         $resultInsert = mysqli_query($connection, $newuser_query) OR die(mysqli_error());
         //$numResult = mysqli_num_rows($resultInsert);
@@ -59,5 +68,22 @@
                 return false;
             }
         }
+    }
+
+    function UserBMI($email){
+        $connection = connection();
+        
+        //Query to get the BMI info
+        $check_BMI = "SELECT UserBMI FROM users WHERE email = '$email'";
+        $check_result = $connection->query($check_BMI);
+        
+        echo $check_BMI . " ";
+        while ($obj = mysqli_fetch_object($check_result))
+        {   
+            echo " <br> ";
+            return $obj["UserBMI"];
+        }
+        
+            
     }
 ?>
