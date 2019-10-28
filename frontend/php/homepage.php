@@ -24,6 +24,15 @@
         unset($_SESSION['email']);
         header("location: ../html/login.php");
     }
+        
+    $request = array();
+    $search = $_POST['searchBar'];
+    $request["type"] = "fetchItem";
+
+    $request["search_item"] = $search;
+    $result = createClientForDb($request);
+    echo $result;
+
     
 ?>
 
@@ -33,7 +42,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+'
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -67,6 +76,7 @@
         
     </style>
 
+
     <body id = "wrapper">
 
         <nav class="navbar navbar-light bg-light">
@@ -85,11 +95,11 @@
         <div class="jumbotron text-center">
             <strong><h1 id = "searchHeader">Search Product</h1></strong>  
             <div class = "container">
-                <form>
+                <form method="post" action="homepage.php">
                     <div class="input-group">
-                        <input id = "searchBar" type="text" class="form-control mr-sm-3" size="50" placeholder="Search" required>
+                        <input id = "searchBar" type="text" class="form-control mr-sm-3" name="searchBar" size="50" placeholder="Search" required>
                         <div class="input-group-btn">
-                            <button id = "searchBtn" type="button" class="btn btn-light">Search</button>
+                            <button id = "searchBtn" type="button" class="btn btn-light" name="searchBtn">Search</button>
                         </div>
                     </div>
                 </form>
