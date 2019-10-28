@@ -17,8 +17,8 @@
 	
 	$flname = ""; 
 	$email = "";
-    $heightInInches = "";
-    $weightInPound = "";
+    	$heightInInches = "";
+    	$weightInPound = "";
 	
 	$errors = array();
 	$request = array();
