@@ -10,10 +10,17 @@ The repository contains all of the code needed to run Nutrition suggetion web. T
  
  ## Getting Started ##
  
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. The repository is divided into 4 folders i.e. Front end, Db, DMZ, RabittMQ 
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. The repository is divided into 3 folders i.e. frontend, dmz, database. 
   
 ### Setting up ###
 
 Followig will show the instructions on how to set up the files and listener files to test the website:
 
+ * RabbitMQ:
+   * Enable rabbitmq_management_plugin and start the RabbitMQ in the web browser.
+   * Make two exchanges for the communication between front-end to database and database to dmz
+     * First exchange: e1 and q1
+     * Second exchange: e2 and q2
  
+ * Database:
+   *
