@@ -10,12 +10,12 @@
     ini_set('log_errors', 'On');
     ini_set('error_log', dirname(__FILE__). '/../logging/log.txt');
 
-function fetchItem($item){
+function fetchUPC($item){
 	
 	$curl = curl_init();
 	
 	curl_setopt_array($curl, array(
-		CURLOPT_URL => "https://trackapi.nutritionix.com/v2/search/instant?query=".$item,
+		CURLOPT_URL => "https://trackapi.nutritionix.com/v2/search/item?upc=".$item."&claims=true",
   		CURLOPT_RETURNTRANSFER => true,
   		CURLOPT_ENCODING => "",
   		CURLOPT_MAXREDIRS => 10,
@@ -38,48 +38,86 @@ function fetchItem($item){
 	}else{
         echo "Search Bar Entry = ".$item;
 		$result = json_decode($response, true);
-        $commonFoods = $result['common'];
-        $food_details = $commonFoods['0'];
-        print_r($food_details);
-        return $food_details;
+        //print_r($result);
+        return $result;
 	}
 }
 
 function fetchNutrients($item){
-	
-	$curl = curl_init();
-	
-	curl_setopt_array($curl, array(
-		CURLOPT_URL => "https://trackapi.nutritionix.com/v2/natural/nutrients",
-  		CURLOPT_RETURNTRANSFER => true,
-  		CURLOPT_ENCODING => "",
-  		CURLOPT_MAXREDIRS => 10,
-  		CURLOPT_TIMEOUT => 30,
-		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  		CURLOPT_CUSTOMREQUEST => "POST",
-        CURLOPT_POST => true,
-        CURLOPT_POSTFIELDS => "",
-  		CURLOPT_HTTPHEADER => array(
-    		        "Postman-Token: 8901c377-f138-4052-a142-4ab83e7f62be",
-                    "cache-control: no-cache",
-                    "x-app-id: 62fe602e",
-                    "x-app-key: b374d3eba576afafbe1c0033f06a11cd"
-  		    ),
-        )
-    );
-	$response = curl_exec($curl);
-	$err = curl_error($curl);
-	curl_close($curl);
-	if($err) {
-		echo "CURL ERROR #:".$err;
-	}else{
+    
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => "https://trackapi.nutritionix.com/v2/natural/nutrients",
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => "",
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 30,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => "POST",
+      CURLOPT_POSTFIELDS => "query=".$item,
+      CURLOPT_HTTPHEADER => array(
+            "Postman-Token: d278d0a7-d9b0-4390-833b-e5d017b71730",
+            "cache-control: no-cache",
+            "x-app-id: 62fe602e",
+            "x-app-key: b374d3eba576afafbe1c0033f06a11cd",
+            "x-remote-user-id: 0"
+      ),
+    ));
+
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+
+    curl_close($curl);
+
+    if ($err) {
+      echo "cURL Error #:" . $err;
+    } else {
         echo "Search Bar Entry = ".$item;
 		$result = json_decode($response, true);
-        $commonFoods = $result['common'];
-        $food_details = $commonFoods['0'];
-        print_r($food_details);
-        return $food_details;
-	}
+        //print_r($result);
+        return $result;
+    }
+
 }
+
+function fetchExercise($exercise){
+    
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => "https://trackapi.nutritionix.com/v2/natural/exercise",
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => "",
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 30,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => "POST",
+      CURLOPT_POSTFIELDS => "query=".$exercise,
+      CURLOPT_HTTPHEADER => array(
+            "Postman-Token: d278d0a7-d9b0-4390-833b-e5d017b71730",
+            "cache-control: no-cache",
+            "x-app-id: 62fe602e",
+            "x-app-key: b374d3eba576afafbe1c0033f06a11cd",
+            "x-remote-user-id: 0"
+      ),
+    ));
+
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+
+    curl_close($curl);
+
+    if ($err) {
+      echo "cURL Error #:" . $err;
+    } else {
+        echo "Search Bar Entry = ".$exercise;
+		$result = json_decode($response, true);
+        //print_r($result);
+        return $result;
+    }
+
+}
+
 
 ?>
