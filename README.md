@@ -19,8 +19,8 @@ Followig will show the instructions on how to set up the files and listener file
  * RabbitMQ:
    * Enable rabbitmq_management_plugin and start the RabbitMQ in the web browser.
    * Make two exchanges for the communication between front-end to database and database to dmz
-     * First exchange: e1 and q1
-     * Second exchange: e2 and q2
+     * First exchange: vh, e1 and q1
+     * Second exchange: vh2, e2 and q2
  
  * Database:
    * Change /database/rabbitmqphp_example/testRabbitMQ.ini file and assign BROKER_HOST the IP address of RabbitMQ server
@@ -34,4 +34,30 @@ Followig will show the instructions on how to set up the files and listener file
    * Change /frontend/rabbitmqphp_example/testRabbitMQ.ini file and assign BROKER_HOST the IP address of RabbitMQ server
    * Open /frontedn/html/login.php in browser to begin testing
    
-   
+ ## Running the tests ##
+ 
+  * Open sys-integration/frontend/html/login.php in browser for testing
+  * Not yet member?:
+    * Enter fields as specified to register a new user and then submit
+    * Enter alergies if any and then submit
+  * Login:
+    * Login with the register email and password
+  * Homepage:
+    * Homepage has BMI setup
+  * Search Page:
+    * Enter a food name and then search
+    * After search, a Box with picture of the product, and nutrition facts will appear.
+  * Example:
+    * To test the search, Insert Orange. 
+    * Nutrition box with picture of an orange and nutrion facts will appear.
+## Nutritionix ##
+  * We would like to thank Nutritionix for providing us with API access free of use for this project.
+
+## Authors ##
+
+  * Shivam Gandhi- FrontEnd- skgandhi44
+  * Milind Patel- Database- mrp72
+  * Rushabh Patel- RabbitMQ- rdp48
+  * Jay Patel- DMZ- jp772
+## Acknowledgements ##
+    
