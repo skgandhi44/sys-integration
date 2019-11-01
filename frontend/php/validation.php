@@ -17,8 +17,8 @@
 	
 	$flname = ""; 
 	$email = "";
-    	$heightInInches = "";
-    	$weightInPound = "";
+    $heightInInches = "";
+    $weightInPound = "";
 	
 	$errors = array();
 	$request = array();
@@ -80,7 +80,8 @@
         if (count($errors) == 0) {
             $result = createClientForDb($request);
             $_SESSION['email'] = $email;
-            header('location: ../php/homepage.php');
+            $_SESSION['flname'] = $flname;
+            header('location: ../html/profile.php');
         }
     }
         
@@ -119,6 +120,46 @@
 
         }
 
+    }
+
+    if(isset($_POST['user_allergy'])){
+        $request["type"] = "allergy";
+        
+        $A1= $_POST['A1'];
+        $A2= $_POST['A2'];
+        $A3= $_POST['A3'];
+        $A4= $_POST['A4'];
+        $A5= $_POST['A5'];
+        $A6= $_POST['A6'];
+        $A7= $_POST['A7'];
+        $A8= $_POST['A8'];
+        $A9= $_POST['A9'];
+        
+        if($A1=="on") $A1=1; else $A1=0;
+        if($A2=="on") $A2=1; else $A2=0;
+        if($A3=="on") $A3=1; else $A3=0;
+        if($A4=="on") $A4=1; else $A4=0;
+        if($A5=="on") $A5=1; else $A5=0;
+        if($A6=="on") $A6=1; else $A6=0;
+        if($A7=="on") $A7=1; else $A7=0;
+        if($A8=="on") $A8=1; else $A8=0;
+        if($A9=="on") $A9=1; else $A9=0;
+        
+        $request["email"] = $_SESSION['email'];
+        $request["A1"] = $A1;
+        $request["A2"] = $A2;
+        $request["A3"] = $A3;
+        $request["A4"] = $A4;
+        $request["A5"] = $A5;
+        $request["A6"] = $A6;
+        $request["A7"] = $A7;
+        $request["A8"] = $A8;
+        $request["A9"] = $A9;
+        
+        if (count($errors) == 0) {
+            $result = createClientForDb($request);
+            header('location: ../php/homepage.php');
+        }
     }
 
 ?>
