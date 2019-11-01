@@ -78,12 +78,46 @@
         $check_result = $connection->query($check_BMI);
         
         echo $check_BMI . " ";
-        while ($obj = mysqli_fetch_object($check_result))
-        {   
-            echo " <br> ";
-            return $obj["UserBMI"];
-        }
-        
+        $obj = $check_result->fetch_assoc();
+           
+        $BMI = $obj["UserBMI"];
+        return $BMI;
+            
             
     }
+
+    function allergy($email, $egg, $soy, $milk, $peanuts, $shellfish, $wheat, $gluten, $treenut, $fish)
+    {
+        //Makes connection to database
+        $connection = connection();
+    
+        
+        //Query for a new user
+        $newuser_query = "INSERT INTO allergy
+                            (
+                                `Email`,
+                                `Egg`,
+                                `Soy`,
+                                `Milk`,
+                                `Peanuts`,
+                                `Shellfish`,
+                                `Wheat`,
+                                `Gluten`,
+                                `Treenut`,
+                                `Fish`
+                            )
+                            VALUES('$email','$egg','$soy','$milk','$peanuts','$shellfish','$wheat','$gluten','$treenut','$fish')";
+        
+        $resultInsert = mysqli_query($connection, $newuser_query) OR die(mysqli_error());
+        //$numResult = mysqli_num_rows($resultInsert);
+        
+        if ($resultInsert == 1){
+            $userEmail = $_SESSION["email"] = $email;
+            return true;
+        } else {
+            return false;
+        }
+        
+    }
+
 ?>
