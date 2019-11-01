@@ -13,29 +13,43 @@
 
     function requestProcessor($request)
     {
-        echo "received request".PHP_EOL;
-        echo "<br> type = " . $request['type'];
+            //echo "received request".PHP_EOL;
+    //        if($request['type']){
+    //            echo "<br> type = " . $request['type'];
+    //        }
 
-        //var_dump($request);
-        
-      if(!isset($request['type']))
-      {
-        return "ERROR: unsupported message type";
-      }
-        
-      switch ($request['type'])
-      {
-          case "fetchItem":
-              echo "Search Food Case";
-              $response = fetchItem($request['search_item']);
-              break;
 
-      }
-        //echo $response;
-        return $response;
-    }
-    $server = new rabbitMQServer("../rabbitmqphp_example/testRabbitMQ.ini","testServer");
-    //echo "testRabbitMQServer BEGIN".PHP_EOL;
-    $server->process_requests('requestProcessor');
-    //exit();
+            //var_dump($request);
+
+            if(!isset($request['type']))
+            {
+                return "";
+            }
+
+            echo "received request".PHP_EOL;
+              switch ($request['type'])
+              {
+                  case "fetchUPC":
+                      echo "Search UPC Product Case";
+                      $response = fetchUPC($request['search_item']);
+                      break;
+
+                  case "fetchNutrients":
+                      echo "Search Food Nutrients Case";
+                      $response = fetchNutrients($request['search_item']);
+                      break;
+
+                  case "fetchExcercise":
+                      echo "Search Exercise Case";
+                      $response = fetchExercise($request['search_item']);
+                      break;
+
+              }
+                //echo $response;
+                return $response;
+            }
+            $server = new rabbitMQServer("../rabbitmqphp_example/testRabbitMQ.ini","testServer");
+            //echo "testRabbitMQServer BEGIN".PHP_EOL;
+            $server->process_requests('requestProcessor');
+            //exit();
 ?>
