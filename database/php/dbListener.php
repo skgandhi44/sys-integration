@@ -43,6 +43,11 @@
               echo "BMI Case";
               $response = UserBMI($request['email']);
               break;
+          
+          case "allergy":
+              echo "alergy Case";
+              $response = allergy($request['email'], $request['A1'],$request['A2'],$request['A3'],$request['A4'],$request['A5'],$request['A6'],$request['A7'],$request['A8'],$request['A9']);
+              break;
       }
         echo $response;
         return $response;
