@@ -48,6 +48,16 @@
               echo "alergy Case";
               $response = allergy($request['email'], $request['A1'],$request['A2'],$request['A3'],$request['A4'],$request['A5'],$request['A6'],$request['A7'],$request['A8'],$request['A9']);
               break;
+          
+          case "addUserProduct":
+              echo "Add Product Case";
+              $response = addUserProduct($request['email'], $request['food_name'], $request['serving_count'], $request['serving_unit'], $request['calories']);
+              break;
+          
+          case "getUserProduct":
+              echo "Show User Product Case";
+              $response = getUserProducts($request['email']);
+              break;
       }
         echo $response;
         return $response;
