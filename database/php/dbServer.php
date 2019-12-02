@@ -120,4 +120,28 @@
         
     }
 
+    function addUserProduct($email, $food_name, $serving_count, $serving_unit, $calories){
+        
+        //Makes connection to database
+        $connection = connection();
+        
+        echo $serving_count;
+        //Query for a new user
+        $new_food_query = "INSERT INTO user_product_list (email, food_name, serving_count, serving_unit, calories) VALUES ('$email', '$food_name', '$serving_count', '$serving_unit', '$calories')";
+        
+        $resultInsert = mysqli_query($connection, $new_food_query) OR die(mysqli_error($connection));
+        //$numResult = mysqli_num_rows($resultInsert);
+        
+        if ($resultInsert == 1){
+            echo "User added ".$food_name;
+            echo nl2br ("\n");
+            return true;
+            
+        } else {
+            return false;
+        }
+        
+    }
+
+
 ?>
