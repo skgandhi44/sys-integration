@@ -21,6 +21,9 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--        <script type="text/javascript" src = "https://code.jquery.com/jquery-1.9.1.min.js"></script>-->
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -29,17 +32,10 @@
         <link rel="stylesheet" type="text/css" href="../css/homepage.css">
     </head>
     
-<!--
     <style>
-        #panel, #searchBtn {
-          padding: 10px;
-        }
-
-        #panel {
-          display:none;
-        }
+    
+        
     </style>
--->
 
     <body id = "wrapper">
         <nav class="navbar navbar-light bg-light">
@@ -61,10 +57,12 @@
             <div class = "container">
                 <form method="post" action="homepage.php">
                     <div class="input-group">
-                        <input id = "searchBar" type="text" class="form-control mr-sm-3" name="searchBar" size="50" placeholder="Search" required>
+                        <input id = "searchBar" type="text" class="form-control mr-sm-3" name="searchBar" size="50" placeholder="Search for common food..."> 
+                        
+                        <input id = "searchUPC" type="text" class="form-control mr-sm-3" name="searchUPC" size="50" placeholder="Search with UPC...">
                         
                         <div class="input-group-btn">
-                            <button id = "searchBtn" type="submit" class="btn btn-light" name="searchBtn" onclick="myFunction()">Search</button>
+                            <button id = "searchBtn" type="submit" class="btn btn-light" name="searchBtn">Search</button>
                         </div>
                         
                     </div>
@@ -76,29 +74,38 @@
             <div class = "container">
                 
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div id = "bmiCard" class="card mt-4">
                             <div class="card-body">
                                 <strong><h4 style= "color:white;font-weight:bold;" class="card-title">BMI</h4></strong>
-                                <p style= "color:white;font-weight:bold;font-size:27px;" class="card-text" name = "bmi"><?php echo $result." : ". $BMI_Category; ?></p>
+                                <p style= "color:white;font-weight:bold;font-size:20px;" class="card-text" name = "bmi"><?php echo $result." : ". $BMI_Category; ?></p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div id = "calorieCard" class="card mt-4">
                             <div class="card-body">
-                                <strong><h4 style= "color:white;font-weight:bold;" class="card-title">Calories</h4></strong>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <strong><h4 style= "color:white;font-weight:bold;" class="card-title">Total Calories</h4></strong>
+                                <p class="card-text" style= "color:white;font-weight:bold;font-size:20px;"><?php echo $productCalories ?></p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
+                        <div id = "dailyCard" class="card mt-4">
+                            <div class="card-body">
+                                <strong><h4 style= "color:white;font-weight:bold;" class="card-title">Allergy to Product</h4></strong>
+                                <p class="card-text"style= "color:white;font-weight:bold;font-size:20px;"></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-3">
                         <div id = "dailyCard" class="card mt-4">
                             <div class="card-body">
                                 <strong><h4 style= "color:white;font-weight:bold;" class="card-title">Day</h4></strong>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <p class="card-text"style= "color:white;font-weight:bold;font-size:20px;"><?php echo date("l") . ", " . date("m-d-y");?></p>
                             </div>
                         </div>
                     </div>
@@ -116,35 +123,97 @@
                                 </div>
                                 
                                 <div class="card-body">
-                                    <b style="font-weigh:bold;color:red;"><h3 class="card-title"><?php echo ucfirst($product_name);?></h3></b>
+                                    <b style="font-weigh:bold;color:red;"><h3 id ="foodName" class="card-title"><?php echo ucfirst($product_name);?></h3></b>
 
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item"><b>Serving: </b><?php echo ucfirst($productServingCount)." ".ucfirst($productServingUnit);?></li>
-                                        <li class="list-group-item"><b>Serving Weight: </b><?php echo ucfirst($productServingWeight);?></li>
-                                        <li class="list-group-item"><b> Total Fat: </b><?php echo ucfirst($productFat);?></li>
-                                        <li class="list-group-item"><b>Calories: </b><?php echo ucfirst($productCalories);?></li>
-                                        <li class="list-group-item"><b>Saturate Fat: </b><?php echo ucfirst($productSaturateFat);?></li>
-                                        <li class="list-group-item"><b>Cholesterol: </b><?php echo ucfirst($productCholesterol);?></li>
-                                        <li class="list-group-item"><b>Dietary Fiber: </b><?php echo ucfirst($productDietaryFiber);?></li>
-                                        <li class="list-group-item"><b>Sugar: </b><?php echo ucfirst($productSugar);?></li>
-                                        <li class="list-group-item"><b>Protin: </b><?php echo ucfirst($productProtin);?></li>
-                                        <li class="list-group-item"><b>Potassium: </b><?php echo ucfirst($productPotassium);?></li>
+                                        
+                                        <b>Serving(s): </b><li id = "servingCount" class="list-group-item"><?php echo ucfirst($productServingCount);?></li>
+                                        
+                                        <b>Serving Unit: </b><li id = "servingUnit" class="list-group-item"><?php echo ucfirst($productServingUnit);?></li>
+                                        
+                                        <b>Serving Weight: </b><li class="list-group-item"><?php echo ucfirst($productServingWeight);?></li>
+                                        <b> Total Fat: </b><li class="list-group-item"><?php echo ucfirst($productFat);?></li>
+                                        
+                                        <b>Calories: </b><li id = "calories" class="list-group-item"><?php echo ucfirst($productCalories);?></li>
+                                        
+                                        <b>Saturate Fat: </b><li class="list-group-item"><?php echo ucfirst($productSaturateFat);?></li>
+                                        
+                                        <b>Cholesterol: </b><li class="list-group-item"><?php echo ucfirst($productCholesterol);?></li>
+                                        
+                                        <b>Dietary Fiber: </b><li class="list-group-item"><?php echo ucfirst($productDietaryFiber);?></li>
+                                        
+                                        <b>Sugar: </b><li class="list-group-item"><?php echo ucfirst($productSugar);?></li>
+                                        
+                                        <b>Protein: </b><li class="list-group-item"><?php echo ucfirst($productProtin);?></li>
+                                        
+                                        <b>Potassium: </b><li class="list-group-item"><?php echo ucfirst($productPotassium);?></li>
                                     </ul>
-                                </div>
+                                    
+                                    <br>
+                                    <button type = "submit" id = "adding_product" name = "adding_product" onclick="addUserProduct()">Add</button>
+                                </div>        
                             </div>
                         </div>
                         
                         <div class="col-sm-6">
-                            <div class="card">
-                                <b><div class="card-header">How long would it take to burn off KCal? </div></b>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Cras justo odio</li>
-                                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                                    <li class="list-group-item">Vestibulum at eros</li>
-                                </ul>
-                            </div>
+                            
+                            <table class="table">
+                              <thead class="thead-dark">
+                                <tr>  
+                                  <th scope="col">Exercise</th>
+                                  <th scope="col">Duration</th>
+                                  <th scope="col">Calories To Burn</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td><b><?php echo ucfirst($runName) ?></b></td>
+                                  <td><?php echo $runDuration ?></td>
+                                  <td><?php echo $runCalories ?></td>
+                                </tr>
+                                  
+                                <tr>
+                                  <td><b><?php echo ucfirst($walkName) ?></b></td>
+                                  <td><?php echo $walkDuration ?></td>
+                                  <td><?php echo $walkCalories ?></td>
+                                </tr>
+                                  
+                                <tr>
+                                  <td><b><?php echo ucfirst($bicycleName) ?></b></td>
+                                  <td><?php echo $bicycleDuration ?></td>
+                                  <td><?php echo $bicycleCalories ?></td>
+                                </tr>
+                                  
+                                <tr>
+                                  <td><b><?php echo ucfirst($swimName) ?></b></td>
+                                  <td><?php echo $swimDuration ?></td>
+                                  <td><?php echo $swimCalories ?></td>
+                                </tr>
+                                
+                              </tbody>
+                            </table>
+                            
+                            <table class="table">
+                              <thead class="thead-dark">
+                                <tr>  
+                                  <th scope="col">Food Name</th>
+                                  <th scope="col">Serving Count</th>
+                                  <th scope="col">Serving Unit</th>
+                                  <th scope="col">Calories</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td><b><?php echo ucfirst($userFood); ?></b></td>
+                                  <td><?php echo ucfirst($userServingCount);?></td>
+                                  <td><?php echo ucfirst($userServingUnit);?></td>
+                                  <td><?php echo ucfirst($userFoodCalories);?></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            
                         </div>
-                    </div>
+                    </div>                    
                 </div>
             </div>
         </div>
