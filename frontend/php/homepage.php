@@ -149,13 +149,41 @@
             </div>
         </div>
         
-<!--
-        <script>
-            function myFunction() {
-                document.getElementById("panel").style.display = "block";
+	<script>
+            function addUserProduct(){
+                
+                var foodName = document.getElementById("foodName").textContent;
+                var servingCount = document.getElementById("servingCount").textContent;
+                var servingUnit = document.getElementById("servingUnit").textContent;
+                var calories = document.getElementById("calories").textContent;
+                var xhr;
+                
+                if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+                    xhr = new XMLHttpRequest();
+                } else if (window.ActiveXObject) { // IE 8 and older
+                    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                var data = "food_Name=" + window.encodeURIComponent(foodName) + "&serving_Count=" + window.encodeURIComponent(parseFloat(servingCount)) + "&serving_Unit=" + window.encodeURIComponent(servingUnit) + "&calories_Count=" + window.encodeURIComponent(parseFloat(calories));
+                
+//                var data = (foodName) + ", " + (servingCount) + ", " + (servingUnit) + ", " + (calories);
+
+                xhr.open("POST", "addProduct.php", true); 
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+                xhr.send(data);
+                xhr.onreadystatechange = display_data;
+                
+                function display_data(){
+                    if(xhr.readyState == 4){
+                        if(xhr.status == 200){
+                            alert("Adding: " + data);
+                        } else {
+                            alert("There was a problem with the request.");
+                        }
+                    }
+                }
             }
+            
         </script>
--->
         
                 <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
