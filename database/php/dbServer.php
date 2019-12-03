@@ -143,5 +143,29 @@
         
     }
 
+    function getUserProducts($email){
+        $connection = connection();
+        
+        //Query to get the BMI info
+        $check_allergy = "SELECT food_name, serving_count, serving_unit, calories FROM user_product_list WHERE email = '$email' and cast(date AS DATE) = current_date()";
+        $check_result = $connection->query($check_allergy);
+        
+        while($row = $check_result->fetch_assoc()){
+            $food_name = $row['food_name'];
+            $serving_count = $row['serving_count'];
+            $serving_unit = $row['serving_unit'];
+            $calories = $row['calories'];
+            
+            $userProductInfo[] = array('food_name'=>$food_name, 'serving_count'=>$serving_count, 'serving_unit'=>$serving_unit, 'calories'=>$calories);
+        }   
+
+        $allUserProcuctsInfo = [];
+        
+        $allUserProcuctsInfo = array('userProductInfo'=>$userProductInfo);
+        
+        return $allUserProcuctsInfo; 
+            
+    }
+
 
 ?>
