@@ -208,4 +208,21 @@
         $BMI_Category = 'Obesity';
     }
 
+  $getUserProd = array();
+    $getUserProd["type"] = "getUserProduct";
+    $getUserProd["email"] = $_SESSION['email'];
+    $getUserProdResults = createClientForDb($getUserProd);
+    
+    $getUserProdParse = $getUserProdResults['userProductInfo'];
+    for($i=0; $i < count($getUserProdParse); $i++){
+        
+        $getEachUserProd = $getUserProdParse[$i];
+
+        $userFood = $getEachUserProd['food_name'];
+        $userServingCount = $getEachUserProd['serving_count'];
+        $userServingUnit = $getEachUserProd['serving_unit'];
+        $userFoodCalories = $getEachUserProd['calories'];
+
+    }
+
 ?>
