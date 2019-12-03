@@ -85,4 +85,54 @@
         //echo nl2br ("\n");
     }
 
+    // Allergy Request
+//    $requestAllergy = array();
+//    $requestAllergy["type"] = "UserAllergy";
+//    $requestAllergy['email'] = $_SESSION['email'];
+//    $userAllergyResult = createClientForDb($requestAllergy);
+
+//    print_r($userAllergyResult);
+//Array ( 
+//    [allergyInfo] => Array ( 
+//        [0] => Array ( 
+//            [Egg] => 0 
+//            [Soy] => 1 
+//            [Milk] => 0 
+//            [Peanuts] => 0 
+//            [Shellfish] => 1 
+//            [Wheat] => 0 
+//            [Gluten] => 1 
+//            [Treenut] => 0 
+//            [Fish] => 0 
+//        ) 
+//    ) 
+//) 
+
+//    foreach($userAllergyResult[allergyInfo] as $allergies){
+//        foreach($allergies as $Allergy => $flag){
+////            print_r($Allergy);
+////            echo nl2br ("\n");
+////            print_r($flag);
+////            echo nl2br ("\n");
+//
+////            for($i=0; $i<count($productClaims); $i++){
+////                 print_r($claims);
+////                 echo nl2br ("\n");
+//
+//             
+//                //echo $Allergy."=>".$flag;
+//                //echo nl2br ("\n");
+//                if($flag == 0 && in_array('No '.$Allergy.' Ingredients', $productClaims)){
+//                    $userAllergy = "Yes";
+//                    
+//                } else {
+//                    $userAllergy = "No";
+////                    break 2;
+//                }
+////            }
+//        }
+//        
+//    }
+
+
 ?>
