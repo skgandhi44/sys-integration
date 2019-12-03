@@ -134,5 +134,27 @@
 //        
 //    }
 
+  if (isset($_POST['searchBtn'])){
+        // Running Request
+        $runReq['type'] = 'fetchExcercise';
+        $runReq["search_item"] = $productCalories.' calories Running';
+        
+        // Walking Request
+        $walkReq['type'] = 'fetchExcercise';
+        $walkReq["search_item"] = $productCalories.' calories Walking';
+        
+        //Bicycle Request
+        $bicycleReq['type'] = 'fetchExcercise';
+        $bicycleReq["search_item"] = $productCalories.' calories Bicycle';
+        
+        //Swimming Request
+        $swimReq['type'] = 'fetchExcercise';
+        $swimReq["search_item"] = $productCalories.' calories Swimming';
+    }
+
+    $runResults = createClientForDmz($runReq);
+    $walkResults = createClientForDmz($walkReq);
+    $bicycleResults = createClientForDmz($bicycleReq);
+    $swimResults = createClientForDmz($swimReq);
 
 ?>
