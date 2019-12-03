@@ -157,4 +157,37 @@
     $bicycleResults = createClientForDmz($bicycleReq);
     $swimResults = createClientForDmz($swimReq);
 
+  $runResultParse = $runResults['exercises'];
+    for($x=0; $x < count($runResultParse); $x++){
+        $running = $runResultParse["$x"];
+        $runDuration = $running['duration_min'];
+        $runName = $running['name'];
+        $runCalories = $running['nf_calories'];
+        //echo $runCalories;
+    }
+
+    $walkResultParse = $walkResults['exercises'];
+    for($i=0; $i < count($walkResultParse); $i++){
+        $walking = $walkResultParse["$i"];
+        $walkDuration = $walking['duration_min'];
+        $walkName = $walking['name'];
+        $walkCalories = $walking['nf_calories'];
+    }
+
+    $bicycleResultParse = $bicycleResults['exercises'];
+    for($i=0; $i < count($bicycleResultParse); $i++){
+        $bicycle = $bicycleResultParse["$i"];
+        $bicycleDuration = $bicycle['duration_min'];
+        $bicycleName = $bicycle['name'];
+        $bicycleCalories = $bicycle['nf_calories'];
+    }
+
+    $swimResultParse = $swimResults['exercises'];
+    for($i=0; $i < count($swimResultParse); $i++){
+        $swimming = $swimResultParse["$i"];
+        $swimDuration = $swimming['duration_min'];
+        $swimName = $swimming['name'];
+        $swimCalories = $swimming['nf_calories'];
+    }
+
 ?>
