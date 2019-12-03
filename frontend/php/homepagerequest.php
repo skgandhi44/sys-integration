@@ -41,4 +41,48 @@
         } 
     }
 
+  $APIresult = createClientForDmz($APIreq);
+
+    $foodResultParse = $APIresult['foods'];
+    for($i=0; $i < count($foodResultParse); $i++){
+        $product = $foodResultParse["$i"];
+        $productPhoto = $product['photo']['highres'];
+        $product_name = $product["food_name"];
+        $productServingCount = $product['serving_qty'];
+        $productServingUnit = $product['serving_unit'];
+        $productServingWeight = $product['serving_weight_grams'];
+        $productFat = $product['nf_total_fat'];
+        $productCalories = $product['nf_calories'];
+        $productSaturateFat = $product['nf_saturated_fat'];
+        $productCholesterol = $product['nf_cholesterol'];
+        $productDietaryFiber = $product['nf_dietary_fiber'];
+        $productSugar = $product['nf_sugars'];
+        $productProtin = $product['nf_protein'];
+        $productPotassium = $product['nf_potassium'];
+        
+    }
+
+    $APIresultUPC = createClientForDmz($APIreqUPC);
+
+    $foodResultParseUPC = $APIresultUPC['foods'];
+    for($i=0; $i < count($foodResultParseUPC); $i++){
+        $product = $foodResultParseUPC["$i"];
+        $productPhoto = $product['photo']['thumb'];
+        $product_name = $product["food_name"];
+        $productServingCount = $product['serving_qty'];
+        $productServingUnit = $product['serving_unit'];
+        $productServingWeight = $product['serving_weight_grams'];
+        $productFat = $product['nf_total_fat'];
+        $productCalories = $product['nf_calories'];
+        $productSaturateFat = $product['nf_saturated_fat'];
+        $productCholesterol = $product['nf_cholesterol'];
+        $productDietaryFiber = $product['nf_dietary_fiber'];
+        $productSugar = $product['nf_sugars'];
+        $productProtin = $product['nf_protein'];
+        $productPotassium = $product['nf_potassium'];
+        $productClaims = $product['claims'];
+//        print_r($productClaims);
+        //echo nl2br ("\n");
+    }
+
 ?>
