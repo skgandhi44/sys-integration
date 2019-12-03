@@ -190,4 +190,22 @@
         $swimCalories = $swimming['nf_calories'];
     }
 
+    $request = array();
+    $request["type"] = "UserBMI";
+    $request['email'] = $_SESSION['email'];
+    $result = createClientForDb($request);
+
+    if($result <= 18.5){
+        $BMI_Category = 'Underweight';
+    }
+    elseif ($result >= 18.5 and $result <= 24.9){
+        $BMI_Category = 'Normal Weight';
+    }
+    elseif ($result >= 25 and $result <= 29.9){
+        $BMI_Category = 'Over-Weight';
+    }
+    else {
+        $BMI_Category = 'Obesity';
+    }
+
 ?>
