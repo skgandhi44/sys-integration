@@ -26,8 +26,21 @@
         fwrite($fp, $errorArray[$i]);
     }
     file_put_contents("/home/linux/git/sys-integration/dmz/logging/log.txt", "");
-    function createClientForRmq($request){
-            $client = new rabbitMQClient("../rabbitmqphp_example/rabbitMQ_RMQ.ini", "testServer");
+
+ function createClientForFE($request){
+            $client = new rabbitMQClient("../rabbitmqphp_example/rabbitMQ_RMQ.ini", "DMZ1_RMQ_LOG_server");
+            if(isset($argv[1])){
+                $msg = $argv[1];
+            }
+            else{
+                $msg = "client";
+            }
+            $response = $client->send_request($request);
+            return $response;
+        }
+
+    function createClientForDB($request){
+            $client = new rabbitMQClient("../rabbitmqphp_example/rabbitMQ_RMQ.ini", "DMZ2_RMQ_LOG_server");
             if(isset($argv[1])){
                 $msg = $argv[1];
             }
