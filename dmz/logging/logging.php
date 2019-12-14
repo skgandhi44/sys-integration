@@ -20,7 +20,9 @@
     $request = array();
     $request['type'] = "dmz";  
     $request['error_string'] = $errorArray;
-    $returnedValue = createClientForRmq($request);
+    $returnedValueFE = createClientForFE($request);
+    $returnedValueDB = createClientForDB($request);
+
     $fp = fopen("/home/linux/git/sys-integration/dmz/logging/log_history.txt", "a");
     for($i = 0; $i < count($errorArray); $i++){
         fwrite($fp, $errorArray[$i]);
