@@ -1,0 +1,13 @@
+[Unit]
+Description= DMZ Listner file
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=linux
+ExecStart=/home/linux/git/script/dmz.sh
+
+[Install]
+WantedBy=multi-user.target
