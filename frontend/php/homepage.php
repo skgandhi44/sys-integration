@@ -347,60 +347,41 @@
                 }
             }
             
-            $(".remove").click(function(){
-                var trId = $(this).parents("tr").attr("id");
-                
-                if(confirm('Are you sure to remoe this record?')){
-                    $.ajax({
-                        url: '../php/removeProduct.php',
-                        type: 'GET',
-                        data: {id: id},
-                        error: function(){
-                            alert('Something Went Wrong');
-                        },
-                        
-                        success: function(data){
-                            $(data).remove();
-                            alert("Record remove successfully");
+            var food_Name, time_ate, removeTableRow = document.getElementById('table');
+            for(var i = 1; i < removeTableRow.rows.length; i++){
+                removeTableRow.rows[i].cells[5].onclick = function(){
+                    food_Name = this.parentElement.cells[0].textContent;
+                    time_ate = this.parentElement.cells[4].textContent;
+                    //removeTableRow.deleteRow(index);
+                    
+                    var xhr;
+                    if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+                        xhr = new XMLHttpRequest();
+                    } else if (window.ActiveXObject) { // IE 8 and older
+                        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    
+                    var data = "food_Name=" + window.encodeURIComponent(food_Name) + "&time_ate=" + window.encodeURIComponent(time_ate);
+                    
+                    xhr.open("POST", "removeProduct.php", true); 
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+                    xhr.send(data);
+                    xhr.onreadystatechange = display_data;
+
+                    function display_data(){
+                        if(xhr.readyState == 4){
+                            if(xhr.status == 200){
+                                alert("Data: " + data);
+                                location.reload();
+                            } else {
+                                alert("There was a problem with the request.");
+                            }
                         }
-                    });
+                    }
+                    
                 }
-            });
-            
-//            function removeUserProduct(){
-//                
-//                //var remove = document.getElementById("row1").remove();
-//                
-//                var foodName = document.getElementById("food_name_ate").textContent;
-//                var servingCount = document.getElementById("serving_count_ate").textContent;
-//                var servingUnit = document.getElementById("serving_unit_ate").textContent;
-//                var calories = document.getElementById("calories_ate").textContent;
-//                var time_ate = document.getElementById("time_ate").textContent;
-//                var xhr;
-//                
-//                if (window.XMLHttpRequest) { // Mozilla, Safari, ...
-//                    xhr = new XMLHttpRequest();
-//                } else if (window.ActiveXObject) { // IE 8 and older
-//                    xhr = new ActiveXObject("Microsoft.XMLHTTP");
-//                }
-//                var data = "food_Name=" + window.encodeURIComponent(foodName) + "&serving_Count=" + window.encodeURIComponent(parseFloat(servingCount)) + "&serving_Unit=" + window.encodeURIComponent(servingUnit) + "&calories_Count=" + window.encodeURIComponent(parseFloat(calories)) + "&time_ate=" + window.encodeURIComponent(time_ate);
-//
-//                xhr.open("POST", "removeProduct.php", true); 
-//                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
-//                xhr.send(data);
-//                xhr.onreadystatechange = display_data;
-//                
-//                function display_data(){
-//                    if(xhr.readyState == 4){
-//                        if(xhr.status == 200){
-//                            alert("Data: " + data);
-////                            location.reload(true);
-//                        } else {
-//                            alert("There was a problem with the request.");
-//                        }
-//                    }
-//                }
-//            }
+                
+            }
             
         </script>
         
