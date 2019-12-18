@@ -16,13 +16,8 @@
     $removeProductToList["email"] = $_SESSION['email'];
 
     $removeProductToList["food_name"] = $_POST['food_Name'];
-    $removeProductToList["serving_count"] = $_POST['serving_Count'];
-    $removeProductToList["serving_unit"] = $_POST['serving_Unit'];
-    $removeProductToList["calories"] = $_POST['calories_Count'];
     $removeProductToList["date"] = $_POST['time_ate'];
 
-    var_dump($addingProductToList);
-
-//    $removeProductResult = createClientForDb($removeProductToList);
+    $removeProductResult = createClientForDb($removeProductToList);
 
 ?>
