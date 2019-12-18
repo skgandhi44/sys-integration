@@ -6,19 +6,20 @@
 	require_once('../rabbitmqphp_example/rabbitMQLib.inc');
 	require_once('rabbitMQClient.php');
 
-   //error logging
-    error_reporting(E_ALL);
+   	//error logging
+    	error_reporting(E_ALL);
 
-    ini_set('display_error', 'Off');
-    ini_set('log_errors', 'On');
-    ini_set('error_log', dirname(__FILE__).'/../logging/log.txt');
+    	ini_set('display_error', 'Off');
+    	ini_set('log_errors', 'On');
+    	ini_set('error_log', dirname(__FILE__).'/../logging/log.txt');
 
 	session_start();
 	
 	$flname = ""; 
 	$email = "";
-    $heightInInches = "";
-    $weightInPound = "";
+	$PhoneNumber = "";
+    	$heightInInches = "";
+    	$weightInPound = "";
 	
 	$errors = array();
 	$request = array();
@@ -52,7 +53,11 @@
             $request["email"] = $email;
         }
 
-
+	if (empty($PhoneNumber)) {
+            array_push($errors, "Phone Number is required"); 
+        } else {
+            $request["PhoneNumber"] = $PhoneNumber;
+        }
 
 
         if (empty($password) || empty($confirm_password)) { 
