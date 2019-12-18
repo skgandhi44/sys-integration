@@ -1,6 +1,8 @@
 <?php
 
-  error_reporting(E_ALL);
+    //error logging
+// 016000507258
+    error_reporting(E_ALL);
 
     ini_set('display_error', 'Off');
     ini_set('log_errors', 'On');
@@ -41,7 +43,7 @@
         } 
     }
 
-  $APIresult = createClientForDmz($APIreq);
+    $APIresult = createClientForDmz($APIreq);
 
     $foodResultParse = $APIresult['foods'];
     for($i=0; $i < count($foodResultParse); $i++){
@@ -85,79 +87,38 @@
         //echo nl2br ("\n");
     }
 
-    // Allergy Request
-//    $requestAllergy = array();
-//    $requestAllergy["type"] = "UserAllergy";
-//    $requestAllergy['email'] = $_SESSION['email'];
-//    $userAllergyResult = createClientForDb($requestAllergy);
 
-//    print_r($userAllergyResult);
-//Array ( 
-//    [allergyInfo] => Array ( 
-//        [0] => Array ( 
-//            [Egg] => 0 
-//            [Soy] => 1 
-//            [Milk] => 0 
-//            [Peanuts] => 0 
-//            [Shellfish] => 1 
-//            [Wheat] => 0 
-//            [Gluten] => 1 
-//            [Treenut] => 0 
-//            [Fish] => 0 
-//        ) 
-//    ) 
-//) 
+// Total Calories Display
 
-//    foreach($userAllergyResult[allergyInfo] as $allergies){
-//        foreach($allergies as $Allergy => $flag){
-////            print_r($Allergy);
-////            echo nl2br ("\n");
-////            print_r($flag);
-////            echo nl2br ("\n");
-//
-////            for($i=0; $i<count($productClaims); $i++){
-////                 print_r($claims);
-////                 echo nl2br ("\n");
-//
-//             
-//                //echo $Allergy."=>".$flag;
-//                //echo nl2br ("\n");
-//                if($flag == 0 && in_array('No '.$Allergy.' Ingredients', $productClaims)){
-//                    $userAllergy = "Yes";
-//                    
-//                } else {
-//                    $userAllergy = "No";
-////                    break 2;
-//                }
-////            }
-//        }
-//        
-//    }
+    $getTotalCalories = array();
+    $getTotalCalories["type"] = "getTotalCalories";
+    $getTotalCalories["email"] = $_SESSION['email'];
+    $getTotalCaloriesResults = createClientForDb($getTotalCalories);
 
-  if (isset($_POST['searchBtn'])){
-        // Running Request
-        $runReq['type'] = 'fetchExcercise';
-        $runReq["search_item"] = $productCalories.' calories Running';
-        
-        // Walking Request
-        $walkReq['type'] = 'fetchExcercise';
-        $walkReq["search_item"] = $productCalories.' calories Walking';
-        
-        //Bicycle Request
-        $bicycleReq['type'] = 'fetchExcercise';
-        $bicycleReq["search_item"] = $productCalories.' calories Bicycle';
-        
-        //Swimming Request
-        $swimReq['type'] = 'fetchExcercise';
-        $swimReq["search_item"] = $productCalories.' calories Swimming';
-    }
+    // Running Request
+
+    $runReq['type'] = 'fetchExcercise';
+    $runReq["search_item"] = $getTotalCaloriesResults.' calories Running';
+    
+    // Walking Request
+    $walkReq['type'] = 'fetchExcercise';
+    $walkReq["search_item"] = $getTotalCaloriesResults.' calories Walking';
+    
+    //Bicycle Request
+    $bicycleReq['type'] = 'fetchExcercise';
+    $bicycleReq["search_item"] = $getTotalCaloriesResults.' calories Bicycle';
+    
+    //Swimming Request
+    $swimReq['type'] = 'fetchExcercise';
+    $swimReq["search_item"] = $getTotalCaloriesResults.' calories Swimming';
 
     $runResults = createClientForDmz($runReq);
     $walkResults = createClientForDmz($walkReq);
     $bicycleResults = createClientForDmz($bicycleReq);
     $swimResults = createClientForDmz($swimReq);
 
-  $runResultParse = $runResults['exercises'];
+//    print_r($runResults);
+    $runResultParse = $runResults['exercises'];
     for($x=0; $x < count($runResultParse); $x++){
         $running = $runResultParse["$x"];
         $runDuration = $running['duration_min'];
@@ -190,6 +151,7 @@
         $swimCalories = $swimming['nf_calories'];
     }
 
+// BMI Request
     $request = array();
     $request["type"] = "UserBMI";
     $request['email'] = $_SESSION['email'];
@@ -208,21 +170,14 @@
         $BMI_Category = 'Obesity';
     }
 
-  $getUserProd = array();
+
+// User Products for the day
+
+    $getUserProd = array();
     $getUserProd["type"] = "getUserProduct";
     $getUserProd["email"] = $_SESSION['email'];
     $getUserProdResults = createClientForDb($getUserProd);
-    
+
     $getUserProdParse = $getUserProdResults['userProductInfo'];
-    for($i=0; $i < count($getUserProdParse); $i++){
-        
-        $getEachUserProd = $getUserProdParse[$i];
-
-        $userFood = $getEachUserProd['food_name'];
-        $userServingCount = $getEachUserProd['serving_count'];
-        $userServingUnit = $getEachUserProd['serving_unit'];
-        $userFoodCalories = $getEachUserProd['calories'];
-
-    }
 
 ?>
