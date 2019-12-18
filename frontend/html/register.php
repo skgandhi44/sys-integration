@@ -11,19 +11,51 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
         <title>Registration</title>
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link rel="stylesheet" type="text/css" href="">
     </head>
+    
+    <style>
+    
+        body{
+            background-color: RGB(243,247,254);
+        }
+        
+        .jumbotron{
+            background-image: linear-gradient(-225deg, #FF3CAC 0%, #562B7C 52%, #2B86C5 100%);
+            border-radius: 0 !important;
+            height: 250px;
+        }
+        
+        #page-header{
+            margin-top: 50px;
+            margin-bottom: 10px;
+        }
+        
+        .card{
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            margin: 0 auto;
+        }
+        
+        #loginLogo{
+            height: 150px;
+            width: 150px;
+        }
+        
+        
+    </style>
 
     <body id = "wrapper">
+        
         <div class = "jumbotron">
             <header id = "page-header">
-                <h2 class = "text-white text-center font-weight-bold">Create Account</h2>
+                <h2 class = "text-white text-center font-weight-bold">Sign Up</h2>
             </header>
         </div>
 
         <div class = "container">
             <div class="card x-shadow mx-auto" style="max-width: 525px; margin-top: -7rem;">
                 <div class="card-body p-5">
+                    <center><img id = "loginLogo" src="../image/Login%20Page.PNG"></center><br>
 
                     <form method="post" action="register.php">
 
@@ -37,9 +69,14 @@
                         </div>
                         
                         <div class="form-row">
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-6">
                                 <label for="email">Email</label>
                                 <input type="text" name="email" id="email" class="form-control input-lg" Placeholder="Email" value="<?php echo $email?>">
+                            </div>
+                            
+                            <div class="form-group col-md-6">
+                                <label for="PhoneNumber">Phone Number</label>
+                                <input type="number" name="PhoneNumber" id="PhoneNumber" class="form-control input-lg" Placeholder="Your Phone Number" value="">
                             </div>
                         </div>
                             
@@ -78,7 +115,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            </div><br><br>
         </div>
         
                 <!-- Optional JavaScript -->
