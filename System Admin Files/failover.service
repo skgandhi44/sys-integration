@@ -1,0 +1,14 @@
+[Unit]
+Description= Failover Script ON
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=dmz-prod-2
+ExecStart=/home/dmz-prod-2/git/script/failover.sh
+
+
+[Install]
+WantedBy=multi-user.target
