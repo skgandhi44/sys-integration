@@ -1,4 +1,24 @@
-<?php include('../php/validation.php');?>
+<?php include('../php/validation.php');
+    
+    //Allergy Request
+    $requestAllergy = array();
+    $requestAllergy["type"] = "UserAllergy";
+    $requestAllergy['email'] = $_SESSION['email'];
+    $userAllergyResult = createClientForDb($requestAllergy);
+
+    //Allergy Request
+    $requestUserInfo = array();
+    $requestUserInfo["type"] = "UserInfo";
+    $requestUserInfo['email'] = $_SESSION['email'];
+    $userInfoResult = createClientForDb($requestUserInfo);
+
+    for ($i=0; $i<count($userInfoResult); $i++){
+        $userInfoResultParse = $userInfoResult['userInfo'][$i];
+        $userFlname = $userInfoResultParse['flname'];
+        $userPhone = $userInfoResultParse['PhoneNumber'];
+    }
+?>
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -10,8 +30,30 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
         <title>User Information</title>
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link rel="stylesheet" type="text/css" href="">
     </head>
+    
+    <style>
+        body{
+            background-color: RGB(243,247,254);
+        }
+        
+        .jumbotron{
+            background-image: linear-gradient(-225deg, #FF3CAC 0%, #562B7C 52%, #2B86C5 100%);
+            border-radius: 0 !important;
+            height: 250px;
+        }
+        
+        #page-header{
+            margin-top: 50px;
+            margin-bottom: 10px;
+        }
+        
+        .card{
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            margin: 0 auto;
+        }
+    </style>
 
     <body id = "wrapper">
        
@@ -38,7 +80,22 @@
                 <div class="card-body p-5">
                     <a>
                         Email: <strong><?php echo $_SESSION['email']; ?></strong><br>
-                        Full Name: <strong><?php echo $_SESSION['flname']; ?></strong>
+                        Full Name: <strong><?php echo $userFlname;?></strong><br>
+                        Phone Number: <strong><?php echo $userPhone; ?></strong><br>
+                        Allergies: 
+                        <strong>
+                            <?php     
+                                foreach($userAllergyResult[allergyInfo] as $allergies){
+                                    foreach($allergies as $Allergy => $flag){
+                                        if ($flag == 1){
+                                           echo $Allergy.", ";
+                                        }
+
+
+                                    }
+                                }
+                            ; ?>
+                        </strong><br>
                     </a>
                 </div>
             </div>
