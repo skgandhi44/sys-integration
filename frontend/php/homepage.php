@@ -44,7 +44,6 @@
              padding:0;
              margin:0;
             }
-          
       </style>
       
   </head>
@@ -53,9 +52,9 @@
 
         <nav class="navbar navbar-expand navbar-light bg-white topbar md-4 static-top shadow">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon" style="background-color:black;"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
-            <h3 style="font-family: 'Alatsi', sans-serif; color: #ff185e ">NutriSize</h3>
+            <h3 style="font-family: 'Alatsi', sans-serif; color: darkgreen; ">NutriSize</h3>
             
             <div class = "mr-auto"></div>
             
@@ -65,12 +64,12 @@
                 <li class="nav-item dropdown no-arrow">
                     <?php  if (isset($_SESSION['email'])) : ?>
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['email']; ?></span>
+                        <span class="mr-2 d-none d-lg-inline small" style="color:black;"><?php echo $_SESSION['email']; ?></span>
                     </a>
                 
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="http://nutrisize.forumotion.com" target="_blank">Community Forum</a>
                         <a class="dropdown-item" href="../html/userAccount.php">Account</a>
-
                         <a class="dropdown-item" href="logout.php?logout=true">Logout</a>
                     </div>
                     <?php endif ?>
@@ -157,39 +156,40 @@
             <div class="d-md-flex">
                 <div class="col-md-4">
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Nutrition Facts</h6>
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between" style="background-color:black;">
+                            <h6 class="m-0 font-weight-bold" style="color:yellow;">Nutrition Facts</h6>
                         </div>
                         <!-- Card Body -->
                         <div class="card-body">
+                            
                             <?php echo '<img class="card-img-top" src = "'.$productPhoto.'">'?>
                                 
                                 <b style="font-weigh:bold;color:red;"><h3 id ="foodName" class="card-title"><?php echo ucfirst($product_name);?></h3></b>
 
                                 <ul class="list-group list-group-flush">
 
-                                    <b>Serving(s): </b><li id = "servingCount" class="list-group-item"><?php echo ucfirst($productServingCount);?></li>
+                                    <b>Serving(s): </b><li id = "servingCount" class="list-group-item" style="font-weigh:bold;color:red;"><?php echo ucfirst($productServingCount);?></li>
 
-                                    <b>Serving Unit: </b><li id = "servingUnit" class="list-group-item"><?php echo ucfirst($productServingUnit);?></li>
+                                    <b>Serving Unit: </b><li id = "servingUnit" class="list-group-item" style="font-weigh:bold;color:red;"><?php echo ucfirst($productServingUnit);?></li>
 
-                                    <b>Serving Weight: </b><li class="list-group-item"><?php echo ucfirst($productServingWeight);?></li>
-                                    <b> Total Fat: </b><li class="list-group-item"><?php echo ucfirst($productFat);?></li>
+                                    <b>Serving Weight: </b><li class="list-group-item" style="font-weigh:bold;color:red;"><?php echo ucfirst($productServingWeight);?></li>
+                                    
+                                    <b> Total Fat: </b><li class="list-group-item" style="font-weigh:bold;color:red;"><?php echo ucfirst($productFat);?></li>
 
-                                    <b>Calories: </b><li id = "calories" class="list-group-item"><?php echo ucfirst($productCalories);?></li>
+                                    <b>Calories: </b><li id = "calories" class="list-group-item" style="font-weigh:bold;color:red;"><?php echo ucfirst($productCalories);?></li>
 
-                                    <b>Saturate Fat: </b><li class="list-group-item"><?php echo ucfirst($productSaturateFat);?></li>
+                                    <b>Saturate Fat: </b><li class="list-group-item" style="font-weigh:bold;color:red;"><?php echo ucfirst($productSaturateFat);?></li>
 
-                                    <b>Cholesterol: </b><li class="list-group-item"><?php echo ucfirst($productCholesterol);?></li>
+                                    <b>Cholesterol: </b><li class="list-group-item" style="font-weigh:bold;color:red;"><?php echo ucfirst($productCholesterol);?></li>
 
-                                    <b>Dietary Fiber: </b><li class="list-group-item"><?php echo ucfirst($productDietaryFiber);?></li>
+                                    <b>Dietary Fiber: </b><li class="list-group-item" style="font-weigh:bold;color:red;"><?php echo ucfirst($productDietaryFiber);?></li>
 
-                                    <b>Sugar: </b><li class="list-group-item"><?php echo ucfirst($productSugar);?></li>
+                                    <b>Sugar: </b><li class="list-group-item" style="font-weigh:bold;color:red;"><?php echo ucfirst($productSugar);?></li>
 
-                                    <b>Protein: </b><li class="list-group-item"><?php echo ucfirst($productProtin);?></li>
+                                    <b>Protein: </b><li class="list-group-item" style="font-weigh:bold;color:red;"><?php echo ucfirst($productProtin);?></li>
 
-                                    <b>Potassium: </b><li class="list-group-item"><?php echo ucfirst($productPotassium);?></li>
+                                    <b>Potassium: </b><li class="list-group-item" style="font-weigh:bold;color:red;"><?php echo ucfirst($productPotassium);?></li>
                                 </ul>
-
                                 <br>
                                 <button type = "submit" id = "adding_product" name = "adding_product" class="btn btn-success" onclick="addUserProduct()">Add</button>
                         </div>
@@ -202,12 +202,12 @@
                     <div class="d-md-flex">
                         <div class="col-xl-12">
                             <div class="card shadow mb-4">
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Just Ate</h6>
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between" style="background-color:black;">
+                                    <h6 class="m-0 font-weight-bold" style="color:yellow;">Just Ate</h6>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body table-responsive">
-                                    <table class="table">
+                                    <table class = "table" id = "table">
                                       <thead class="thead-dark">
                                         <tr>  
                                           <th scope="col">Food Name</th>
@@ -225,7 +225,7 @@
                                                     for($i=0; $i < count($getUserProdParse); $i++){
 
                                           ?>
-                                            <tr id="row1">
+                                            <tr id="deleteRecord">
                                                 
                                               <td id="food_name_ate"><b><?php echo ucfirst($getUserProdParse[$i]["food_name"]); ?></b></td>
                                               <td id="serving_count_ate"><?php echo ucfirst($getUserProdParse[$i]["serving_count"]);?></td>
@@ -233,7 +233,7 @@
                                               <td id="calories_ate"><?php echo ucfirst($getUserProdParse[$i]["calories"]);?></td>
                                               <td id="time_ate"><?php echo ucfirst($getUserProdParse[$i]["date"]);?></td>
                                                 
-                                              <td><button type="submit" class="btn btn-outline-danger remove" onclick="removeUserProduct()">Remove</button></td>
+                                              <td><button type="submit" class="btn btn-outline-danger" id = "remove">Remove</button></td>
                                             </tr>
                                           <?php     }
                                                 }
@@ -250,11 +250,13 @@
                         </div>
                     </div>
                     
+<!--                    onclick="removeUserProduct()"-->
+                    
                     <div class="d-md-flex">
                         <div class="col-xl-12">
                             <div class="card shadow mb-4">
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Just Burn It</h6>
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between" style="background-color:black;">
+                                    <h6 class="m-0 font-weight-bold" style="color:yellow;">Just Burn It</h6>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
@@ -339,13 +341,14 @@
                     if(xhr.readyState == 4){
                         if(xhr.status == 200){
                             alert("Added to list");
-                            location.reload();
+                            window.top.location = window.top.location
                         } else {
                             alert("There was a problem with the request.");
                         }
                     }
                 }
             }
+            
             
             var food_Name, time_ate, removeTableRow = document.getElementById('table');
             for(var i = 1; i < removeTableRow.rows.length; i++){
@@ -372,7 +375,7 @@
                         if(xhr.readyState == 4){
                             if(xhr.status == 200){
                                 alert("Data: " + data);
-                                location.reload();
+                                window.top.location = window.top.location
                             } else {
                                 alert("There was a problem with the request.");
                             }
@@ -382,6 +385,7 @@
                 }
                 
             }
+        
             
         </script>
         
