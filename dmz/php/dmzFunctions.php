@@ -119,5 +119,23 @@ function fetchExercise($exercise){
 
 }
 
+function sendSMS($PhoneNumber, $calories){
+    
+    $ch = curl_init('https://textbelt.com/text');
+    $data = array(
+      'phone' => $PhoneNumber,
+      'message' => 'Today you consumed '.$calories.' calories!',
+      'key' => 'NutriSize',
+    );
 
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    $response = curl_exec($ch);
+    curl_close($ch);
+    
+    return "Message sent to ". $PhoneNumber;
+    
+}
 ?>
