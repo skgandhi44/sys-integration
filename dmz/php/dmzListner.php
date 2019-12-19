@@ -43,6 +43,11 @@
                       echo "Search Exercise Case";
                       $response = fetchExercise($request['search_item']);
                       break;
+                      
+                  case "SMS":
+                      echo "Send SMS Case";
+                      $response = sendSMS($request['PhoneNumber'], $request['calories']);
+                      break;
 
               }
                 //echo $response;
