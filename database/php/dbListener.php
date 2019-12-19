@@ -38,6 +38,11 @@
               echo "Register Case";
               $response = register($request['flname'],$request['email'],$request['pass'], $request['heightInInches'], $request['weightInPound']);
               break;
+
+          case "UserInfo":
+              echo "User Info Case";
+              $response = UserInfo($request['email']);
+              break;
               
           case "UserBMI":
               echo "BMI Case";
@@ -48,16 +53,32 @@
               echo "alergy Case";
               $response = allergy($request['email'], $request['A1'],$request['A2'],$request['A3'],$request['A4'],$request['A5'],$request['A6'],$request['A7'],$request['A8'],$request['A9']);
               break;
-          
+
+          case "UserAllergy":
+              echo "Show Allergy Case";
+              $response = getAllergy($request['email']);
+              break;
+              
           case "addUserProduct":
               echo "Add Product Case";
               $response = addUserProduct($request['email'], $request['food_name'], $request['serving_count'], $request['serving_unit'], $request['calories']);
               break;
-          
+                        
+          case "removeUserProduct":
+              echo "Remove Product Case";
+              $response = removeUserProduct( $request['email'], $request['date'], $request['food_name']);
+              break;
+              
           case "getUserProduct":
               echo "Show User Product Case";
               $response = getUserProducts($request['email']);
               break;
+
+          case "getTotalCalories":
+              echo "Show User Total Calories Case";
+              $response = getTotalCalories($request['email']);
+              break;
+
       }
         echo $response;
         return $response;
