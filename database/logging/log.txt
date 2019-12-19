@@ -370,3 +370,253 @@ Stack trace:
 [02-Dec-2019 18:21:48 America/New_York] PHP Notice:  Undefined variable: userProductInfo in /home/milind/git/sys-integration/database/php/dbServer.php on line 201
 [02-Dec-2019 18:21:48 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
 [02-Dec-2019 18:22:32 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 17:35:05 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/milind/git/sys-integration/database/php/dbListener.php(74): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[03-Dec-2019 17:36:20 America/New_York] PHP Notice:  Undefined variable: userProductInfo in /home/milind/git/sys-integration/database/php/dbServer.php on line 200
+[03-Dec-2019 17:36:20 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 17:36:43 America/New_York] PHP Notice:  Undefined variable: userProductInfo in /home/milind/git/sys-integration/database/php/dbServer.php on line 200
+[03-Dec-2019 17:36:43 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 17:36:54 America/New_York] PHP Notice:  Undefined variable: userProductInfo in /home/milind/git/sys-integration/database/php/dbServer.php on line 200
+[03-Dec-2019 17:36:54 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 17:37:44 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 17:37:45 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 17:37:57 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 17:39:14 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 17:39:30 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 17:50:43 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 17:53:28 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 17:55:11 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 17:56:40 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 17:56:59 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 17:57:11 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 18:02:45 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 18:05:33 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 18:05:37 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 18:06:44 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 18:18:16 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 18:19:37 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 18:19:53 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 18:20:15 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 18:20:58 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 18:22:14 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 18:25:00 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 18:25:09 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 18:25:21 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 67
+[03-Dec-2019 18:32:31 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:32:33 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:34:58 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:35:53 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:37:32 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:38:42 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:38:58 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:39:15 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:39:44 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:39:54 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:40:10 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:41:22 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:41:45 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:42:00 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:42:11 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:44:16 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:44:36 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:45:04 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:45:14 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:45:38 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:45:52 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:46:07 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:48:07 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:48:17 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:48:51 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:49:01 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:49:14 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:49:30 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:49:41 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:49:52 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:50:05 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:50:15 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:51:18 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:51:25 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:54:13 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:54:30 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:54:46 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:57:18 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:57:38 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:58:56 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:59:12 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 18:59:23 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 19:06:14 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 19:07:37 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 19:07:53 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 19:10:16 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 19:10:27 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[03-Dec-2019 19:11:58 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 12:55:58 America/New_York] PHP Notice:  Undefined variable: userProductInfo in /home/milind/git/sys-integration/database/php/dbServer.php on line 200
+[05-Dec-2019 12:55:59 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 12:57:22 America/New_York] PHP Notice:  Undefined variable: userProductInfo in /home/milind/git/sys-integration/database/php/dbServer.php on line 200
+[05-Dec-2019 12:57:22 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 13:00:41 America/New_York] PHP Notice:  Undefined variable: userProductInfo in /home/milind/git/sys-integration/database/php/dbServer.php on line 200
+[05-Dec-2019 13:00:41 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 13:01:15 America/New_York] PHP Notice:  Undefined variable: userProductInfo in /home/milind/git/sys-integration/database/php/dbServer.php on line 200
+[05-Dec-2019 13:01:15 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 13:01:49 America/New_York] PHP Notice:  Undefined variable: userProductInfo in /home/milind/git/sys-integration/database/php/dbServer.php on line 200
+[05-Dec-2019 13:01:49 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 13:06:29 America/New_York] PHP Notice:  Undefined variable: userProductInfo in /home/milind/git/sys-integration/database/php/dbServer.php on line 200
+[05-Dec-2019 13:06:29 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 13:10:51 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 13:11:26 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 13:21:24 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 13:23:28 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 13:23:56 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 13:24:06 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 13:35:55 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 13:40:42 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 13:41:11 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 13:41:22 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 13:46:34 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 13:47:17 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 13:47:41 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 13:48:04 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 13:48:26 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 13:48:39 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[05-Dec-2019 13:48:49 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 12:17:16 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:00:56 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPException: Library error: unexpected protocol state in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc:122
+Stack trace:
+#0 /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc(122): AMQPQueue->consume(Array)
+#1 /home/milind/git/sys-integration/database/php/dbListener.php(79): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[07-Dec-2019 13:09:19 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:09:27 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:22:07 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:23:34 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:24:08 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:24:27 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:26:58 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:29:07 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:29:49 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:29:52 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:30:47 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:31:53 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:35:26 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:35:29 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:35:59 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:38:30 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:40:34 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:43:08 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:44:25 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:45:17 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:45:37 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:45:50 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:46:03 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:47:00 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:47:09 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:47:22 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:50:43 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:51:11 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:52:43 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:53:04 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:53:42 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:54:02 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:54:14 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:55:01 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:55:15 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:55:27 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[07-Dec-2019 13:56:01 America/New_York] PHP Notice:  Array to string conversion in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[10-Dec-2019 17:13:49 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/milind/git/sys-integration/database/php/dbListener.php(78): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[10-Dec-2019 18:01:59 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/milind/git/sys-integration/database/php/dbListener.php(78): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[10-Dec-2019 18:02:24 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/milind/git/sys-integration/database/php/dbListener.php(78): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[10-Dec-2019 18:02:39 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/milind/git/sys-integration/database/php/dbListener.php(78): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[10-Dec-2019 18:02:44 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/milind/git/sys-integration/database/php/dbListener.php(78): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[10-Dec-2019 18:03:19 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/milind/git/sys-integration/database/php/dbListener.php(78): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[10-Dec-2019 18:05:57 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/milind/git/sys-integration/database/php/dbListener.php(78): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[10-Dec-2019 18:06:00 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/milind/git/sys-integration/database/php/dbListener.php(78): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[10-Dec-2019 18:07:03 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/milind/git/sys-integration/database/php/dbListener.php(78): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[10-Dec-2019 18:08:19 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/milind/git/sys-integration/database/php/dbListener.php(78): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[10-Dec-2019 19:21:19 America/New_York] PHP Notice:  Undefined index: date in /home/milind/git/sys-integration/database/php/dbServer.php on line 234
+[10-Dec-2019 19:21:19 America/New_York] PHP Notice:  Undefined index: date in /home/milind/git/sys-integration/database/php/dbServer.php on line 234
+[10-Dec-2019 19:24:59 America/New_York] PHP Notice:  Undefined variable: response in /home/milind/git/sys-integration/database/php/dbListener.php on line 79
+[12-Dec-2019 17:30:26 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPException: Library error: unexpected protocol state in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc:122
+Stack trace:
+#0 /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc(122): AMQPQueue->consume(Array)
+#1 /home/milind/git/sys-integration/database/php/dbListener.php(91): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[12-Dec-2019 19:14:11 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Library error: a socket error occurred - Potential login failure. in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/milind/git/sys-integration/database/php/dbListener.php(91): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[12-Dec-2019 19:19:28 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/milind/git/sys-integration/database/php/dbListener.php(91): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[14-Dec-2019 19:12:27 America/New_York] PHP Notice:  Undefined index: food_name in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[14-Dec-2019 19:12:27 America/New_York] PHP Notice:  Undefined index: serving_count in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[14-Dec-2019 19:12:27 America/New_York] PHP Notice:  Undefined index: serving_unit in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[14-Dec-2019 19:12:27 America/New_York] PHP Notice:  Undefined index: calories in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[14-Dec-2019 19:13:42 America/New_York] PHP Notice:  Undefined variable: food_name in /home/milind/git/sys-integration/database/php/dbServer.php on line 220
+[14-Dec-2019 19:19:56 America/New_York] PHP Notice:  Undefined index: food_name in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[14-Dec-2019 19:21:19 America/New_York] PHP Notice:  Undefined index: food_name in /home/milind/git/sys-integration/database/php/dbListener.php on line 72
+[17-Dec-2019 17:32:43 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/milind/git/sys-integration/database/php/dbListener.php(93): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[17-Dec-2019 21:16:21 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPException: Library error: unexpected protocol state in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc:122
+Stack trace:
+#0 /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc(122): AMQPQueue->consume(Array)
+#1 /home/milind/git/sys-integration/database/php/dbListener.php(93): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[18-Dec-2019 19:03:24 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/milind/git/sys-integration/database/php/dbListener.php(91): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[18-Dec-2019 19:09:15 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/milind/git/sys-integration/database/php/dbListener.php(91): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/milind/git/sys-integration/database/rabbitmqphp_example/rabbitMQLib.inc on line 132
