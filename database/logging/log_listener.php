@@ -52,10 +52,12 @@
         return $response_msg;
     }
     //creating a new server
-    $server = new rabbitMQServer('../rabbitmqphp_example/rabbitMQ_RMQ.ini', 'testServer');
+    $FELogServer = new rabbitMQServer('../rabbitmqphp_example/rabbitMQ_RMQ.ini', 'FE_RMQ_Log_Server');
+
+    $DMZLogServer = new rabbitMQServer('../rabbitmqphp_example/rabbitMQ_RMQ.ini', 'DMZ_RMQ_Log_Server');
    
     //processes the request sent by client
-    $server->process_requests('requestProcessor');
-   
-    //exit();
+    $FELogServer->process_requests('requestProcessor');
+    $DMZLogServer->process_requests('requestProcessor');
+
     ?>
