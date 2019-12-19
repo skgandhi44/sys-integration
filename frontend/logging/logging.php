@@ -22,7 +22,8 @@
     $request = array();
     $request['type'] = "frontend";  
     $request['error_string'] = $errorArray; 
-    $returnedValue = createClientForRmq($request);
+    $returnedValueToDMZ = createClientForDMZ($request);
+    $returnedValueToDB = createClientForDB($request);
     $fp = fopen("../logging/log_history.txt", "a");
     
     for($i = 0; $i < count($errorArray); $i++){
@@ -31,8 +32,8 @@
 
     file_put_contents("../logging/log.txt", "");
 
-    function createClientForRmq($request){
-            $client = new rabbitMQClient("../rabbitmqphp_example/rabbitMQ_rmq.ini", "testServer");
+    function createClientForDMZ($request){
+            $client = new rabbitMQClient("../rabbitmqphp_example/rabbitMQ_RMQ.ini", "FE1_RMQ_LOG_Server");
             if(isset($argv[1])){
                 $msg = $argv[1];
             }
@@ -42,4 +43,18 @@
             $response = $client->send_request($request);
             return $response;
         }
+
+    function createClientForDB($request){
+            $client = new rabbitMQClient("../rabbitmqphp_example/rabbitMQ_RMQ.ini", "FE2_RMQ_LOG_Server");
+            if(isset($argv[1])){
+                $msg = $argv[1];
+            }
+            else{
+                $msg = "client";
+            }
+            $response = $client->send_request($request);
+            return $response;
+    }
+        
+
 ?>
