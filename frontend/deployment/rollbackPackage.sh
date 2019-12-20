@@ -28,7 +28,7 @@ rm -rf /var/www/html/sys-integration/
 
 #moves files from temp folder to correct directories
 #mv /tmp/data/git/ /home/$USER/git/
-mv /tmp/data/ /var/www/sys-integration/
+mv /tmp/data/ /var/www/html/sys-integration/
 
 #deletes temp folder
 rm -rf /tmp/data
