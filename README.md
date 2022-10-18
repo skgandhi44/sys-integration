@@ -55,7 +55,7 @@ Followig will show the instructions on how to set up the files and listener file
 
 ## Authors ##
 
-  * Shivam Gandhi- FrontEnd- skgandhi44
+  * Shivam Gandhi- FrontEnd- 
   * Milind Patel- Database- mrp72
   * Rushabh Patel- RabbitMQ- rdp48
   * Jay Patel- DMZ- jp772
